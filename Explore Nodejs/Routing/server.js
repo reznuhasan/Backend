@@ -8,7 +8,7 @@ const server=http.createServer((req,res)=>{
         res.write('<li><a href="/">Home</a></li>')
         res.write('<li><a href="/about">About</a></li>')
         res.write('<li><a href="/contact">Contact</a></li>')
-        res.write('<h1>This is Home Page</h1>');
+        res.write('<h1>This is my Home Page</h1>');
         res.end();
     }else if(req.url==='/about'){
         res.setHeader("Content-Type", "text/html");
