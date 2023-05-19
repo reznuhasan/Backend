@@ -3,6 +3,7 @@ const app=express();
 const useRouter=require('./routes/products.route.js')
 
 app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 app.get('/',(req,res)=>{
     res.send('<h1>Welcome to My Products REST API');

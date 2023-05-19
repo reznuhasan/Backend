@@ -1,4 +1,4 @@
-const products=require('../models/models.product');
+let products=require('../models/models.product');
 const {v4:uuidv4}=require('uuid')
 // get products
 exports.allProducts=(req,res)=>{
@@ -28,7 +28,7 @@ exports.updateProduct=(req,res)=>{
 
 //delete products
 exports.deleteProduct=(req,res)=>{
-    const id=req.params.id;
-    products=products.filter(product=>product.id!==id);
-    res.status(200).json(products)
+       const id=req.params.id;
+       products=products.filter(product=>product.id!==id)
+       res.status(200).json(products)
 }
