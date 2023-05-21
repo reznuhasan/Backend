@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .box {
+            width: 100%;
+            height: 100vh;
+            background-color: rgb(204, 223, 239);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .weather-box {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #87CEEB;
+        }
+
+        .content-Part {
+            background-color: #A3E8F8;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+        }
+
+        .weather-icon i {
+            font-size: 60px;
+            margin: 30px 0 50px;
+        }
+
+        .location {
+            margin: 30px 0;
+
+        }
+
+        .temperature {
+            margin: 15px 0px 30px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="box">
+        <div class="weather-box">
+            <div class="weather-icon" id="weather-icon">
+                <!-- <i class="fa-solid fa-sun"></i> -->
+            </div>
+            <div class="content-Part">
+                <div class="location">
+                    <h1>{%location%},{%country%}</h1>
+                    <p id="today"></p>
+                </div>
+                <div class="temperature">
+                    <h1>{%cel%}&deg;C</h1>
+                    <p>Min {%minCel%}&deg;C|Max {%maxCel%}&deg;C</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const months=['Jan','Feb','Mar','Apr','May','June','July','Aug','Sep','Oct','Nov','Dec']
+
+const date=new Date();
+const day=date.getDay();
+const month=date.getMonth();
+const year=date.getFullYear();
+let minute=date.getMinutes();
+let hour=date.getHours();
+
+if(minute<10){
+    minute='0'+minute;
+}
+let time=`${hour}:${minute}AM`;
+if(hour>12){
+    time=`${hour}:${minute}PM`
+}
+const weather='{%weather%}';
+console.log(weather);
+let box=document.getElementById('weather-icon')
+if(weather==='Sunny'){
+    box.innerHTML=`<i class="fas fa-sun" style="color:#FDB813"></i>`
+}else if(weather==='Clouds'){
+    box.innerHTML=`<i class="fas fa-cloud" style="color:#c7c4bf"></i>`
+}else if(weather==='Rainy'){
+    box.innerHTML=`<i class="fas fa-cloud-rain" style="color:#a4b0be"></i>`
+}else{
+    box.innerHTML=`<i class="fas fa-sun" style="color:#FDB813"></i>`
+}
+const today=document.getElementById('today');
+today.innerHTML=`${days[day]}|${months[month]}|${year}|${time}`
+
+    </script>
+</body>
+
+</html>
