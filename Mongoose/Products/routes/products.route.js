@@ -5,7 +5,7 @@ const mongoose=require('mongoose');
 const product=mongoose.model('product',productSchema);
 //get multiple
 router.get('/',async(req,res)=>{
-    await product.find({}).limit(2).skip(1).exec()
+    await product.find({}).exec()
     .then(result=>res.status(200).json({message:"find successfully",result}))
     .catch(err=>res.status(500).json({error:"server side error"}))
 })
@@ -39,8 +39,10 @@ router.put('/:id',async(req,res)=>{
     .catch(err=>res.status(500).json({error:"server side error"}))
 })
 //delete only one data
-router.delete('/:id',(req,res)=>{
-    
+router.delete('/:id',async(req,res)=>{
+    await product.deleteOne({_id:req.params.id})
+    .then((result)=>res.status(200).json({message:"deleteOne successfully",result}))
+    .catch(err=>res.status(500).json({error:"server side error"}))
 })
 
 module.exports=router;
