@@ -4,8 +4,18 @@ const user=require('../models/user.model')
 //find All users
 const getAllUsers=async(req,res)=>{
     try{
-        const result= await user.find({});
+        const result= await user.find({}).exec();
+        console.log(result)
         res.status(200).json({message:"find user successfully",result})
+    }catch(err){
+        res.status(500).json({message:"server side error",err})
+    }
+}
+const findAllName=async(req,res)=>{
+    try{
+        const result= await user.find({},"name").exec();
+        const names= result.map(myUser=>myUser.name)
+        res.status(200).json({message:"find user successfully",names})
     }catch(err){
         res.status(500).json({message:"server side error",err})
     }
@@ -51,4 +61,4 @@ const updateOneUser=async(req,res)=>{
         res.status(500).json({message:"server side error",err})
     }
 }
-module.exports={getAllUsers,getUser,createUser,createUserMany,updateOneUser}
+module.exports={getAllUsers,getUser,createUser,createUserMany,updateOneUser,findAllName}
