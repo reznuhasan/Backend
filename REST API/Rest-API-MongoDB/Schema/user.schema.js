@@ -16,5 +16,9 @@ const userSchema=new Schema({
     }
 
 })
-
+userSchema.methods={
+    findEmail:function(){
+        return mongoose.model("user").find({},"email");
+    }
+}
 module.exports=userSchema;
