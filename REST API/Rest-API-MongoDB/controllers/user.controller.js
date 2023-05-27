@@ -21,10 +21,20 @@ const findAllName=async(req,res)=>{
         res.status(500).json({message:"server side error",err})
     }
 }
+//find by name
 const searchByName=async(req,res)=>{
     try{
-        const result= await user.find({name:req.params.name}).exec(); 
-        res.status(200).json({message:"find user successfully",result})
+        const result= await user.find({name:req.params.name}).exec();
+        res.status(200).json({message:"find user by name successfully",result})
+    }catch(err){
+        res.status(500).json({message:"server side error",err})
+    }
+}
+//find by email
+const searchByEmail=async(req,res)=>{
+    try{
+        const result=await user.find({email:req.params.email}).exec();
+        res.status(200).json({message:"find user by email successfully",result})
     }catch(err){
         res.status(500).json({message:"server side error",err})
     }
@@ -81,4 +91,4 @@ const updateOneUser=async(req,res)=>{
         res.status(500).json({message:"server side error",err})
     }
 }
-module.exports={getAllUsers,getUser,createUser,createUserMany,updateOneUser,findAllName,findAlllEmail,searchByName}
+module.exports={getAllUsers,getUser,createUser,createUserMany,updateOneUser,findAllName,findAlllEmail,searchByName,searchByEmail}
