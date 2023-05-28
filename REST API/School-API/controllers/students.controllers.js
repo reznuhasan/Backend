@@ -5,7 +5,10 @@ const showAllStudents=(req,res)=>{
 const showRegister=(req,res)=>{
     res.sendFile('D:/riznu/Backend/REST API/School-API/views/register.html')
 }
+const createUser=(req,res)=>{
+    const {userName,userEmail}=req.body;
+    res.send(`Name:${userName} Email:${userEmail}`)
+}
 
 
-
-module.exports={showAllStudents,showRegister}
+module.exports={showAllStudents,showRegister,createUser}
