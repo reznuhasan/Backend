@@ -5,6 +5,7 @@ const mongoose=require('mongoose');
 const cors=require('cors');
 app.use(cors());
 app.use(express.urlencoded({extended:true}))
+app.use(express.static('public'))
 app.use(express.json());
 main().catch(err=>console.log(err))
 async function main(){

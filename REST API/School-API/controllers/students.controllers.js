@@ -23,8 +23,7 @@ const createUser=async(req,res)=>{
         }
         const newStudent=new student(newUser);
         await newStudent.save();
-        res.send("user create successfully");
-        res.status(200)
+        res.send('<h1>user created successfully</h1>')
     }catch(err){
         res.status(500).json({message:"server side error"})
     }
