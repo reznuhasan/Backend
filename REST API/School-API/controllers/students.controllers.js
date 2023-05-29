@@ -16,14 +16,23 @@ const showAllStudents=async(req,res)=>{
 //create one user
 const createUser=async(req,res)=>{
     try{
-        const {userName,userEmail}=req.body;
+        //find users
+        const totalStudents=await student.find({});
+        let newId=totalStudents.length+101;
+        let studentId=(totalStudents.length===0)?101:newId;
+        
+        const {userName,userEmail,roll,password,contact}=req.body;
         const newUser={
+            id:studentId,
             name:userName,
-            email:userEmail
+            roll:roll,
+            email:userEmail,
+            password:password,
+            phone:contact
         }
         const newStudent=new student(newUser);
         await newStudent.save();
-        res.send('<h1>user created successfully</h1>')
+        res.send(`<h1>account create successfully,your id:${studentId}</h1>`)
     }catch(err){
         res.status(500).json({message:"server side error"})
     }
