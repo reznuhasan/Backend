@@ -3,7 +3,7 @@ const { showAllStudents,showRegister,createUser } = require('../controllers/stud
 const router=express.Router();
 
 
-// router.get('/',showAllStudents)
+router.get('/',showAllStudents)
 router.get('/register',showRegister)
 router.post('/create',createUser)
 module.exports=router;
