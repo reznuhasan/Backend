@@ -18,8 +18,8 @@ const createUser=async(req,res)=>{
        newUser.email=req.body.email;
        newUser.password=req.body.password;
        newUser.phone=req.body.phone;
+       await newUser.save();
        res.status(200).json({message:"user send successfully",newUser})
-       newUser.save();
     }catch(err){
         res.status(500).json({error:"server side error",err})
     }
