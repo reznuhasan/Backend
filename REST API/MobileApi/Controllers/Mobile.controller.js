@@ -23,7 +23,24 @@ const addMobile=async(req,res)=>{
 }
 const findAllMobiles=async(req,res)=>{
     try{
-        const allMobiles=await Mobile.find({}).select({title:1,_id:0,price:1,id:1});
+        const price=req.query.price;
+        const rate=req.query['rating.rate'];
+        console.log(price,rate);
+        let myCon={};
+        if(price && rate){
+            myCon={
+                $and:[
+                    {price:{$gt:500}},
+                    {'rating.rate':{$gt:rate}}
+                ]
+            };
+        }
+        let allMobiles;
+        if(price){
+             allMobiles=await Mobile.find(myCon).select({title:1,_id:0,price:1,id:1}).sort({price:-1});
+        }else{
+            allMobiles=await Mobile.find({}).select({title:1,_id:0,price:1,id:1}).sort({price:-1});
+        }
         if(allMobiles){
             res.status(200).json({message:"find data successfully",allMobiles})
         }else{
