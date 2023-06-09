@@ -19,10 +19,29 @@ app.get('/',(req,res)=>{
 })
 app.post('/register',async(req,res)=>{
     try{
-       console.log(req.body)
-       res.status(200).json({message:"post successfully"})
+       const newUser=new user(req.body);
+       newUser.save()
+       res.status(200).json({message:"post successfully",newUser})
     }catch(err){
         res.status(500).json({message:"server side error"})
     }
+})
+app.post('/login',async(req,res)=>{
+    try{
+       const {email,password}=req.body;
+       const logUser=await user.findOne({email:email})
+       if(logUser){
+        if(logUser.password===password){
+            res.status(200).json({message:"login successfully",logUser}) 
+        }else{
+            res.status(400).json({message:"wrong user"})
+        }
+       }else{
+        res.status(400).json({message:"wrong user"})
+       }
+       
+     }catch(err){
+        res.status(500).json({message:"server side error"})
+     }
 })
 module.exports=app;
