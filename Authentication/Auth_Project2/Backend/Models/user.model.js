@@ -10,6 +10,12 @@ const userSchema=new Schema({
     name:{
         type:String,
         required:true,
+        validate:{
+            validator:function(v){
+                return v.length>=3
+            },
+            message:"name at least more than 3 words"
+        }
     },
     email:{
         type:String,
@@ -20,3 +26,6 @@ const userSchema=new Schema({
         required:true,
     }
 })
+const userModel=new mongoose.model("user",userSchema);
+
+module.exports=userModel;
