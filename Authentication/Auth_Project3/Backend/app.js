@@ -3,11 +3,13 @@ const app=express();
 const mongoose=require('mongoose');
 const cors=require('cors');
 const user=require('./Models/user.model')
+require('dotenv').config();
+const databaseURL=process.env.MONGO_URL
 //connect mongoose
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/AuthProject3');
+  await mongoose.connect(databaseURL)
   console.log("database connect successfully")
 }
 //auth code
@@ -21,10 +23,13 @@ app.get('/',(req,res)=>{
     res.send('Authentication Project 3')
 })
 app.post('/register',async(req,res)=>{
+    const allUser=await user.find({});
+    const totalUser=allUser.length;
+    const userId=(totalUser===0)?101:totalUser+101;
     try{
         bcrypt.hash(req.body.password, saltRounds, async function(err, hash) {
             const newUser=new user({
-                id:req.body.id,
+                id:userId,
                 name:req.body.name,
                 email:req.body.email,
                 password:hash

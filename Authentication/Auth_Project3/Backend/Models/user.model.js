@@ -13,16 +13,16 @@ const userSchema=new Schema({
         type:String,
         required:[true,"email must be required"],
     },
-    password:{
-        type:String,
-        required:[true,"password must be required"],
-        validate:{
-            validator:function(v){
-                return v.length>=8;
-            },
-            message:"password must be 8 letters long"
-        }
-    }
+    password: {
+        type: String,
+        required: [true, "password must be required"],
+        validate: {
+          validator: function (v) {
+            return v.length >= 8;
+          },
+          message: "password must be 8 letters long",
+        },
+    },
 })
 
 const userModel=new mongoose.model('user',userSchema);
