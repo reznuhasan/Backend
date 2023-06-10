@@ -1,0 +1,12 @@
+.register{
+    width: 500px;
+    margin-top: 20px;
+}
+.register h1{
+    font-size: 30px;
+    margin: 0;
+}
+.register input{
+    width: 97%;
+    margin: 5px 0;
+}

@@ -1,0 +1,10 @@
+.nav a{
+    text-decoration: none;
+    font-size: 20px;
+    color: darkslateblue;
+    font-weight: bolder;
+    margin: 0px 10px;
+}
+.active_link{
+    color: red !important;
+}
