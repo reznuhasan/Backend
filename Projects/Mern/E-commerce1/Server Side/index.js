@@ -1,6 +1,5 @@
 const app=require('./app');
-require('dotenv').config();
-const port =process.env.PORT || 8000
+const {port}=require('./secret')
 
 app.listen(port,()=>{
     console.log(`server running successfully at http://localhost:${port}`);
