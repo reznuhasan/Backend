@@ -1,8 +1,8 @@
 const express=require('express');
-const { findUser, createUser } = require('../controllers/userController');
+const { createUser, getUsers } = require('../controllers/userController');
 const router=express.Router();
 
-router.get('/',findUser)
+router.get('/',getUsers)
 router.post('/register',createUser);
 
 
