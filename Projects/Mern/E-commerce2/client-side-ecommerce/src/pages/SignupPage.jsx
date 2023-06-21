@@ -1,5 +1,5 @@
 import React from 'react'
-import Signup from '../auth/components/Signup'
+import Signup from '../features/auth/components/Signup'
 
 function SignupPage() {
   return (

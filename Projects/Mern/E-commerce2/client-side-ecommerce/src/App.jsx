@@ -1,6 +1,8 @@
 
+import Cart from './features/cart/cart'
 import Navbar from './features/navbar/Navbar'
 import ProductList from './features/product-list/ProductList'
+import CartPage from './pages/CartPage'
 import Home from './pages/Home'
 import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
@@ -30,6 +32,12 @@ function App() {
       path: "signup",
       element:(
         <SignupPage/>
+        )
+    },
+    {
+      path: "cart",
+      element:(
+        <CartPage/>
         )
     },
   ]);
