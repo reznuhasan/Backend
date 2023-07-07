@@ -1,0 +1,30 @@
+.logo{
+    font-size: 24px;
+    text-decoration: none;
+    color:white;
+}
+.page{
+    font-size: 18px;
+    text-decoration: none;
+    color:goldenrod;
+    margin-left: 50px;
+}
+.font-part{
+   display: flex;
+   position: relative;
+}
+.font-icon{
+    color:white;
+    font-size: 24px;
+}
+.font-text-part{
+    background-color: blue;
+    color: white;
+    border-radius: 50%;
+    width: 15px;
+    text-align: center;
+    position: absolute;
+    top:-15px;
+    right: -7px;
+    font-size: 15px;
+}
