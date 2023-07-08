@@ -4,7 +4,7 @@ import { Button, Card, Col } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { addItemToCart } from '../../Features/CartFeature/cartSlice';
 
-const Product = ({ product }) => {
+const Product = ({ product,handlePopUp}) => {
     const [buttonColor, setButtonColor] = useState("warning")
     const { thumbnail, price, title, stock, rating, description } = product;
     const dispatch = useDispatch()
@@ -19,7 +19,7 @@ const Product = ({ product }) => {
     const handleAddToCart = () => {
         dispatch(addItemToCart(product))
         setButtonColor("success")
-
+        handlePopUp(true)
     }
 
     return (
@@ -33,7 +33,7 @@ const Product = ({ product }) => {
                     </Card.Text>
                 </Card.Body>
                 <div className="row fw-bold">
-                    <div className="col">{`Price: ${price}`}</div>
+                    <div className="col">{`Price:$${price}`}</div>
                     <div className="col">{`Rating: ${rating}`}</div>
                 </div>
                 <div className="fw-bold mb-3 text-danger">{`Stock: ${stock}`}</div>

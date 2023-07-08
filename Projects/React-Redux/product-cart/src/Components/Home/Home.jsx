@@ -1,11 +1,11 @@
 import React from 'react'
-import Carts from '../Cart/Carts'
+import ItemDetails from '../CartDetails/ItemDetails'
 
 const Home = () => {
   return (
     <div>
         <h1>Home Page</h1>
-        <Carts/>
+        <ItemDetails/>
     </div>
   )
 }

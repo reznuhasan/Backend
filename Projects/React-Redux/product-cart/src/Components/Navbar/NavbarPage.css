@@ -32,8 +32,8 @@
     font-size: 15px;
 }
 .card-details{
-    width: 200px !important;
-    padding: 10px;
+    width: 350px !important;
+    padding: 10px !important;
 }
 .empty-content{
     display: flex;
