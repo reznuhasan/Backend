@@ -17,6 +17,9 @@
     color:white;
     font-size: 24px;
 }
+.active{
+    color:red;
+}
 .font-text-part{
     background-color: blue;
     color: white;
@@ -27,4 +30,12 @@
     top:-15px;
     right: -7px;
     font-size: 15px;
+}
+.card-details{
+    width: 200px !important;
+    padding: 10px;
+}
+.empty-content{
+    display: flex;
+    justify-content: space-between !important;
 }
