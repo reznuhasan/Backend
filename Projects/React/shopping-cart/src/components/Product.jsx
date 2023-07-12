@@ -3,8 +3,11 @@ import { Button, Card, Col } from 'react-bootstrap';
 import "../styles/product.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../features/CartFeature/cartSlice';
 const Product = ({ product,handleShow }) => {
     const { title, description, price, brand, category, rating, thumbnail, stock } = product;
+    const dispatch=useDispatch();
     return (
         <div>
             <Col>
@@ -23,7 +26,10 @@ const Product = ({ product,handleShow }) => {
                         </Card.Text>
                     </Card.Body>
                     <Card.Footer>
-                        <Button variant="warning" className='w-100' onClick={()=>handleShow(true)}>
+                        <Button variant="warning" className='w-100' onClick={()=>{
+                            handleShow(true)
+                            dispatch(addItem({ title, description, price, brand, category, rating, thumbnail, stock }))
+                        }}>
                             Add To Cart
                         </Button>
 
