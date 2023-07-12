@@ -1,25 +1,38 @@
-import React from 'react'
-import { Card, Col } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Button, Card, Col } from 'react-bootstrap';
+import "../styles/product.scss"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+const Product = ({ product,handleShow }) => {
+    const { title, description, price, brand, category, rating, thumbnail, stock } = product;
+    return (
+        <div>
+            <Col>
+                <Card className='p-2'>
+                    <Card.Img variant="top" src={thumbnail} height="150px" />
+                    <Card.Body style={{
+                        "height": "250px"
+                    }}>
+                        <Card.Title className='title'>{title}</Card.Title>
+                        <Card.Text className='text'>
+                            <h5>Price:{price}</h5>
+                            <p>Brand:{brand}</p>
+                            <p>Category:{category}</p>
+                            <p>stock:{stock}</p>
+                            <h5><FontAwesomeIcon icon={faStar} />{rating}</h5>
+                        </Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                        <Button variant="warning" className='w-100' onClick={()=>handleShow(true)}>
+                            Add To Cart
+                        </Button>
 
-const Product = ({product}) => {
-    const {title,description,price,brand,category,rating,thumbnail,stock}=product;
-  return (
-    <div>
-         <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-    </div>
-  )
+                    </Card.Footer>
+
+                </Card>
+            </Col>
+        </div>
+    )
 }
 
 export default Product
