@@ -1,0 +1,31 @@
+.nav {
+    background-color: lightblue !important;
+    display: flex !important;
+    align-items: center !important;
+}
+.nav a {
+    text-decoration: none !important;
+    margin:0px 10px !important;
+    color: gray;
+    >h3{
+        color: burlywood;
+    }
+}
+.nav .icon{
+    position: relative;
+    >a{
+        >.num{
+            width: 22px;
+            height: 22px;
+            background-color: black;
+            border-radius: 50%;
+            text-align: center;
+            color:white;
+            font-size: 16px;
+            position: absolute;
+            font-weight: 600;
+            top:-10px;
+            right: -7px;
+        }
+    }
+}
