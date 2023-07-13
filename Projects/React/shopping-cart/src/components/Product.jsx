@@ -6,7 +6,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { useDispatch } from 'react-redux';
 import { addItem } from '../features/CartFeature/cartSlice';
 const Product = ({ product,handleShow }) => {
-    const { title, description, price, brand, category, rating, thumbnail, stock } = product;
+    const {id, title, description, price, brand, category, rating, thumbnail, stock } = product;
     const dispatch=useDispatch();
     return (
         <div>
@@ -28,7 +28,7 @@ const Product = ({ product,handleShow }) => {
                     <Card.Footer>
                         <Button variant="warning" className='w-100' onClick={()=>{
                             handleShow(true)
-                            dispatch(addItem({ title, description, price, brand, category, rating, thumbnail, stock }))
+                            dispatch(addItem({ id,title, description, price, brand, category, rating, thumbnail, stock }))
                         }}>
                             Add To Cart
                         </Button>

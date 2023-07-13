@@ -1,0 +1,29 @@
+.item{
+    display: flex;
+    width: 450px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px;
+    >img{
+        width: 120px;
+        height: 100px;
+    }
+    >.content{
+        width: 180px;
+        >h5{
+            font-size: 16px;
+        }
+        >.quantity{
+            margin: 8px 0;
+            >input{
+                width: 40px !important;
+                text-align: center;
+            }
+            
+        } 
+    }
+    >.del-icon{
+        font-size: 30px;
+        color: darkred;
+    }
+}

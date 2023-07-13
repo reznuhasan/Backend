@@ -1,14 +1,14 @@
 .nav {
-    background-color: lightblue !important;
+    background-color: black !important;
     display: flex !important;
     align-items: center !important;
 }
 .nav a {
     text-decoration: none !important;
     margin:0px 10px !important;
-    color: gray;
+    color: whitesmoke;
     >h3{
-        color: burlywood;
+        color: goldenrod;
     }
 }
 .nav .icon{
@@ -17,10 +17,10 @@
         >.num{
             width: 22px;
             height: 22px;
-            background-color: black;
+            background-color: whitesmoke;
             border-radius: 50%;
             text-align: center;
-            color:white;
+            color:blue;
             font-size: 16px;
             position: absolute;
             font-weight: 600;

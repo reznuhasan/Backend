@@ -9,7 +9,7 @@ const Header = () => {
     const items=useSelector(state=>state.cart.items)
     return (
         <div>
-            <Navbar expand="lg" className="bg-body-tertiary nav" fixed="top">
+            <Navbar expand="lg" className=" nav" fixed="top">
                 <Container>
                     <Link to="/"><h3>Shopping Cart</h3></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
