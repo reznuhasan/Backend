@@ -11,6 +11,10 @@ const doctorSchema=new Schema({
         type:String,
         required:true,
     },
+    image:{
+        type:String,
+        required:true,
+    },
     qualification:{
         type:String,
         required:true,
@@ -39,11 +43,11 @@ const doctorSchema=new Schema({
                     required:true,
                 },
                 startTime:{
-                    type:Date,
+                    type:String,
                     required:true,
                 },
                 endTime:{
-                    type:Date,
+                    type:String,
                     required:true,
                 }
             }
