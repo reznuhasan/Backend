@@ -2,6 +2,8 @@ const express=require('express');
 const app=express();
 const docterRouter=require('./router/doctorRoutes');
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 const mongoose = require('mongoose');
 

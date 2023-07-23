@@ -8,27 +8,23 @@ const getAllDoctor=(req,res)=>{
 
     }
 }
-const addDoctor=async(req,res)=>{
-    try{
-       const allDoctor=await Doctor.find({});
-       const id=(allDoctor.length===0)?101:101+allDoctor.length;
-       const newDoctorData={
-        ...req.body,
-        userId:id,
-       };
-       const newDoctor=new Doctor(newDoctorData);
-       await newDoctor.save((err,savedDoctor)=>{
-        if (err) {
-            console.error('Error saving doctor:', err);
-            return res.status(500).json({ error: 'Error saving doctor' });
-          } else {
-            console.log('Doctor saved successfully:', savedDoctor);
-            return res.status(201).json(savedDoctor);
-          }
-       })
-    }catch(err){
-        res.status(504).json('server side error for save doctor')
+const addDoctor = async (req, res) => {
+    try {
+      const allDoctor=await Doctor.find({});
+      const Id=(allDoctor.length===0)?101:allDoctor.length+101
+      const doctorData=req.body;
+      const newDoctorData={
+        doctorId:Id,
+        ...doctorData,
+      }
+      const newDoctor = new Doctor(newDoctorData);
+      const savedDoctor = await newDoctor.save();
+      console.log('Doctor saved successfully:', savedDoctor);
+      return res.status(201).json(savedDoctor);
+    } catch (err) {
+      console.error('Error saving doctor:', err);
+      res.status(500).json({ error: 'Error saving doctor' });
     }
-}
+};
 
 module.exports={getAllDoctor,addDoctor}

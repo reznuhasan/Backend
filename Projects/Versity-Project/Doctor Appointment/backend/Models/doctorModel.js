@@ -2,10 +2,10 @@ const mongoose=require('mongoose')
 const { Schema } = mongoose;
 
 const doctorSchema=new Schema({
-    userId:{
-        type:Number,
-        required:true,
-        unique:true,
+    doctorId:{
+      type:Number,
+      required:true,
+      unique:true,
     },
     name:{
         type:String,
