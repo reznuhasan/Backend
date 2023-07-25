@@ -2,11 +2,16 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import RootLayout from "./layout/RootLayout"
 import AdminLayout from "./layout/AdminLayout"
 import AddDoctor from "./components/Admin/AddDoctor"
+import UserLayout from "./layout/UserLayout"
+import Doctors from "./components/UserSide/Doctors"
 
 
 function App() {
   const router=createBrowserRouter(createRoutesFromElements([
     <Route path="/" element={<RootLayout/>}>
+      <Route path="/" element={<UserLayout/>}>
+        <Route path="doctors" element={<Doctors/>}/>
+      </Route>
      <Route path="admin" element={<AdminLayout/>}>
       <Route path="add" element={<AddDoctor/>}/>
      </Route>

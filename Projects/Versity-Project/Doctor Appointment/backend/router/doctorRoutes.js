@@ -1,11 +1,12 @@
 const express=require('express');
-const { getAllDoctor, addDoctor } = require('../controller/doctorCtrl');
+const { getAllDoctor, addDoctor, searchDoctor } = require('../controller/doctorCtrl');
 const router=express.Router({
     caseSensitive:true,
 });
+const upload=require('../config/doctorMulter')
 
-
-router.get('/',getAllDoctor)
-router.post('/add',addDoctor)
+router.get('/',getAllDoctor);
+router.get('/search/:key',searchDoctor);
+router.post('/add',upload.single('image'),addDoctor)
 
 module.exports=router;
