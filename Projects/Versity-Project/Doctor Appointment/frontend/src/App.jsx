@@ -5,6 +5,8 @@ import AddDoctor from "./components/Admin/AddDoctor"
 import UserLayout from "./layout/UserLayout"
 import Doctors from "./components/UserSide/Doctors"
 import Home from "./components/UserSide/Home"
+import Register from "./components/UserSide/Register"
+import Login from "./components/UserSide/Login"
 
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
       <Route path="/" element={<UserLayout/>}>
         <Route path="/" element={<Home/>}/>
         <Route path="doctors" element={<Doctors/>}/>
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Route>
      <Route path="admin" element={<AdminLayout/>}>
       <Route path="add" element={<AddDoctor/>}/>

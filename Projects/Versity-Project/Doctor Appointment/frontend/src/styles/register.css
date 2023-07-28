@@ -1,0 +1,38 @@
+.register{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F7F7FF;
+}
+
+.register .form-container{
+    width: 600px;
+    padding:0 15px;
+    margin-top: 80px;
+    border-radius: 5px;
+    background-color: rgb(127, 159, 255);
+}
+.register .form-container .register-title{
+    color:darkred;
+    text-align: center;
+} 
+.register .form-container .myForm .inputField{
+    margin:4px 0px;
+}
+.register .form-container .myForm input{
+    width: 100%;
+}
+.register .form-container .myForm .register-btn .btn{
+    width: 100%;
+    margin-top: 7px;
+}
+.register .form-container .myForm .login-page{
+    color: yellow;
+}
+.register .form-container .myForm p{
+    font-size: 18px;
+    margin-top: 18px !important; 
+}

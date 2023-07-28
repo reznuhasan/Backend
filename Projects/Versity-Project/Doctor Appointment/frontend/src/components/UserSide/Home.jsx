@@ -11,10 +11,10 @@ const Home = () => {
           <Row>
             <Col md={6} className='content-part'>
               <div className='title'>
-                <h3>We Provide All Health Care Solution</h3>
+                <h3>We Provide All Type Doctor Appointment</h3>
               </div>
               <h1>Protect Your Health And Take Care Of Your Health</h1>
-              <Button className='btn'>Appoint A Doctor</Button>
+              <Button className='btn'>Get A Appointment</Button>
             </Col>
             <Col md={1}/>
             <Col md={5} className='banner-img'>

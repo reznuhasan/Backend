@@ -10,13 +10,13 @@ const Headers = () => {
           <Link to="/" className='logo'>H-DoCTor</Link>
           <Nav className="nav">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/about">About Us</NavLink>
             <NavLink to="/doctors">Find Doctor</NavLink>
+            <NavLink to="/hospital">Hospital</NavLink>
             <NavLink to="/suggestion">Suggestion</NavLink>
-            <NavLink to="/contact">Contact Us</NavLink>
+            <NavLink to="/helpline">HelpLine</NavLink>
             <div className=''>
-              <Button><Link to="/login" className='login'>Login</Link></Button>
-              <Button><Link to="/register" className='register'>Register</Link></Button>
+              <Button><Link to="/login" className='login-btn'>Login</Link></Button>
+              <Button><Link to="/register" className='register-btn'>Register</Link></Button>
             </div>
           </Nav>
         </Container>

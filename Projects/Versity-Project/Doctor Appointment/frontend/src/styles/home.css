@@ -8,9 +8,9 @@
 }
 .title{
     background-image: url("../images/title.png");
-    width: 510px;
+    width: 575px;
     color: #7175D7;
-    font-family:"Poppins",sans-serif ;
+    font-family:"Poppins",sans-serif;
     font-weight: 700;
     font-size: 18px;
 }
