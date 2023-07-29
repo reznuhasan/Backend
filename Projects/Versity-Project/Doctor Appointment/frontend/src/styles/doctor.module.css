@@ -1,0 +1,12 @@
+.doctorContent{
+    display: flex;
+}
+.btn{
+     background-color: #F17732 !important;
+     border: none !important;
+     width: 100% !important;
+}
+.btnText{
+    text-decoration: none;
+    color: whitesmoke;
+}
