@@ -25,7 +25,6 @@ const addDoctor = async (req, res) => {
       }
       const newDoctor = new Doctor(newDoctorData);
       const savedDoctor = await newDoctor.save();
-      console.log('Doctor saved successfully:', savedDoctor);
       return res.status(201).json(savedDoctor);
     } catch (err) {
       console.error('Error saving doctor:', err);
@@ -34,18 +33,22 @@ const addDoctor = async (req, res) => {
 };
 const searchDoctor = async (req, res) => {
   try {
+    const searchKey = new RegExp(req.params.key, 'i');
+
     const result = await Doctor.find({
-      "$or": [
-        { name: { $regex: req.params.key } },
-        { qualification: { $regex: req.params.key } },
-        { category: { $regex: req.params.key } },
-        { 'hospitals.name': { $regex: req.params.key } }, // Search by hospital name
+      $or: [
+        { name: { $regex: searchKey } },
+        { qualification: { $regex: searchKey } },
+        { category: { $regex: searchKey } },
+        { 'hospitals.name': { $regex: searchKey } }, // Search by hospital name
       ],
     });
+
     res.status(200).json(result);
   } catch (err) {
     console.error('Error searching doctor:', err);
     res.status(500).json({ error: 'Error searching doctor' });
   }
 };
+
 module.exports={getAllDoctor,addDoctor,searchDoctor}

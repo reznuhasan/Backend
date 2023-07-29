@@ -1,10 +1,13 @@
 const express=require('express');
 const app=express();
 const docterRouter=require('./router/doctorRoutes');
-
+const userRouter=require('./router/userRoutes')
 
 const cors=require('cors');
-app.use(express.json())
+
+
+require('./config/passport')
+
 app.use(express.urlencoded({extended:true}))
 app.use(cors())
 const mongoose = require('mongoose');
@@ -17,7 +20,7 @@ async function main() {
 }
 
 app.use('/api/doctors',docterRouter)
-
+app.use('/api/users',userRouter)
 app.get('/',(req,res)=>{
     res.send('hello from other side')
 })

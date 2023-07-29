@@ -3,7 +3,7 @@ const { getAllDoctor, addDoctor, searchDoctor } = require('../controller/doctorC
 const router=express.Router({
     caseSensitive:true,
 });
-const upload=require('../config/doctorMulter')
+const upload=require('../middleware/doctorMulter')
 
 router.get('/',getAllDoctor);
 router.get('/search/:key',searchDoctor);
