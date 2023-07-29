@@ -7,6 +7,8 @@ import Doctors from "./components/UserSide/Doctors"
 import Home from "./components/UserSide/Home"
 import Register from "./components/UserSide/Register"
 import Login from "./components/UserSide/Login"
+import DoctorPrivate from "./layout/DoctorPrivate"
+import DoctorDetails from "./components/UserSide/DoctorDetails"
 
 
 function App() {
@@ -14,9 +16,12 @@ function App() {
     <Route path="/" element={<RootLayout/>}>
       <Route path="/" element={<UserLayout/>}>
         <Route path="/" element={<Home/>}/>
-        <Route path="doctors" element={<Doctors/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
+        <Route path="doctors" element={<Doctors/>}/>
+        <Route path="/*" element={<DoctorPrivate/>}>   
+          <Route path="doctors/:name" element={<DoctorDetails/>}/>
+        </Route>
       </Route>
      <Route path="admin" element={<AdminLayout/>}>
       <Route path="add" element={<AddDoctor/>}/>
