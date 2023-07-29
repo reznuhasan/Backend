@@ -4,10 +4,18 @@ const Doctor=require('../Models/doctorModel')
 const getAllDoctor=async(req,res)=>{
     try{
        const allDoctor=await Doctor.find({})
-       res.status(202).json({"message":"doctor get successfully",allDoctor})
+       res.status(202).json({"message":"doctors get successfully",allDoctor})
     }catch(err){
       res.status(500).json({ error: 'Error getting doctor' });
     }
+}
+const getOneDoctor=async(req,res)=>{
+  try{
+    const oneDoctor=await Doctor.findOne({name:req.params.name})
+    res.status(202).json({"message":"doctor get successfully",oneDoctor})
+  }catch(err){
+    res.status(500).json({ error: 'Error getting doctor' });
+  }
 }
 const addDoctor = async (req, res) => {
     try {
@@ -51,4 +59,4 @@ const searchDoctor = async (req, res) => {
   }
 };
 
-module.exports={getAllDoctor,addDoctor,searchDoctor}
+module.exports={getAllDoctor,addDoctor,searchDoctor,getOneDoctor}
