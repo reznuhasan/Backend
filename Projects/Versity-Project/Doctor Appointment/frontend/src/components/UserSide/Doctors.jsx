@@ -1,6 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-import imageUrl from "../../assets/react.svg"
+import Doctor from './Doctor';
+import styles from "../../styles/doctors.module.css"
+import { Row } from 'react-bootstrap';
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
 
@@ -16,22 +18,30 @@ const Doctors = () => {
 
     fetchDoctors();
   }, []);
-
+  const handleSearchValue = async (e) => {
+    const key = e.target.value;
+    try {
+      const response = await axios.get(`http://localhost:5000/api/doctors/search/${key}`)
+      setDoctors(response.data)
+    } catch (error) {
+      console.error('Error searching doctors:', error);
+    }
+  };
   return (
-    <div>
-      {doctors.map((doctor) => (
-        <div key={doctor._id}>
-          <img src={`/src/assets/${doctor.image}`} alt="" />
-          {console.log(imageUrl,`/src/assets/${doctor.image}`)
-          
+    <div className={styles.allDoctor}>
+      <div className={styles.searchDoctor}>
+         <input type="text" onChange={handleSearchValue} placeholder='search Doctor by name category qualification and hospitals'/>
+      </div>
+      <div>
+        <Row xs={1} md={3} className="g-4">
+          {
+            doctors.map(doctor => <Doctor doctor={doctor} key={doctor._id} />)
           }
-          <h2>{``}</h2>
-          <p>Qualification: {doctor.qualification}</p>
-          <p>Category: {doctor.category}</p>
-        </div>
-      ))}
+        </Row>
+      </div>
     </div>
   );
 };
 
 export default Doctors;
+

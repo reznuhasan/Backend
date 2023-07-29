@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import styles from '../../styles/addDoctor.module.css'
 
 const AddDoctor = () => {
   const [doctorData, setDoctorData] = useState({
@@ -85,16 +86,7 @@ const AddDoctor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // setDoctorData((prevData) => ({
-    //   ...prevData,
-    //   hospitals: [
-    //     ...prevData.hospitals,
-    //     {
-    //       ...hospitalData,
-    //       timeSlots: [timeData],
-    //     },
-    //   ],
-    // }));
+    
     hospitalData.timeSlots.push(timeData)
     doctorData.hospitals.push(hospitalData)
     
@@ -129,6 +121,27 @@ const AddDoctor = () => {
       })
       .then((response) => {
         console.log('Doctor data saved:', response.data);
+        setDoctorData({
+          name: '',
+          image: null,
+          qualification: '',
+          category: '',
+          fees: '',
+          hospitals: [],
+        });
+        setHospitalData({
+          name: '',
+          location: '',
+          serials: '',
+        });
+    
+        setTimeData({
+          day: '',
+          startTime: '',
+          endTime: '',
+        });
+        alert("Doctor add Successfully")
+
       })
       .catch((error) => {
         console.error('Error saving doctor data:', error);
@@ -136,30 +149,34 @@ const AddDoctor = () => {
   };
 
   return (
-    <div>
+    <div className={styles.addDoctor}>
+      <h2 className={styles.title}>Add Doctor</h2>
+      <div className={styles.formContainer}> 
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={doctorData.name} onChange={handleInputChange} placeholder="enter doctor name" />
-        <input type="file" name="image" onChange={handleImageChange} />
-        <input type="text" name="qualification" value={doctorData.qualification} onChange={handleInputChange} placeholder="enter doctor qualification" />
-        <input type="text" name="category" value={doctorData.category} onChange={handleInputChange} placeholder="enter doctor category" />
-        <input type="number" name="fees" value={doctorData.fees} onChange={handleInputChange} placeholder="enter doctor fees" />
+      <legend>Doctor Information</legend>
+        <input type="text" name="name" value={doctorData.name} onChange={handleInputChange} placeholder="enter doctor name"  className={styles.inputField} />
+        <input type="file" name="image" onChange={handleImageChange}  className={styles.inputField}/>
+        <input type="text" name="qualification" value={doctorData.qualification} onChange={handleInputChange} placeholder="enter doctor qualification"  className={styles.inputField} />
+        <input type="text" name="category" value={doctorData.category} onChange={handleInputChange} placeholder="enter doctor category"  className={styles.inputField} />
+        <input type="number" name="fees" value={doctorData.fees} onChange={handleInputChange} placeholder="enter doctor fees"  className={styles.inputField} />
 
         {/* hospital side data */}
-        <input type="text" name="name" value={hospitalData.name} onChange={handleHospitalData} placeholder="enter hospital name" />
-        <input type="text" name="location" value={hospitalData.location} onChange={handleHospitalData} placeholder="enter hospital location" />
-        <input type="number" name="serials" value={hospitalData.serials} onChange={handleHospitalData} placeholder="enter total serials" />
+        <input type="text" name="name" value={hospitalData.name} onChange={handleHospitalData} placeholder="enter hospital name"  className={styles.inputField}/>
+        <input type="text" name="location" value={hospitalData.location} onChange={handleHospitalData} placeholder="enter hospital location"  className={styles.inputField}/>
+        <input type="number" name="serials" value={hospitalData.serials} onChange={handleHospitalData} placeholder="enter total serials"  className={styles.inputField}/>
 
         {/* set time slot part */}
-        <input type="text" name="day" value={timeData.day} onChange={handleTimeSlot} placeholder="enter day" />
-        <input type="time" name="startTime" value={timeData.startTime} onChange={handleTimeSlot} placeholder="enter start time" />
-        <input type="time" name="endTime" value={timeData.endTime} onChange={handleTimeSlot} placeholder="enter end time" />
+        <input type="text" name="day" value={timeData.day} onChange={handleTimeSlot} placeholder="enter day"  className={styles.inputField} />
+        <input type="time" name="startTime" value={timeData.startTime} onChange={handleTimeSlot} placeholder="enter start time"  className={styles.inputField}/>
+        <input type="time" name="endTime" value={timeData.endTime} onChange={handleTimeSlot} placeholder="enter end time"  className={styles.inputField}/>
         {/* Button to add hospital */}
-        <button type="button" onClick={handleAddHospital}>
+        <button type="button" onClick={handleAddHospital} className={styles.button}>
           Add Hospital
         </button>
         {/* Button to submit the form */}
-        <button type="submit">Save Doctor</button>
+        <button type="submit" className={`${styles.button} ${styles.submitButton}`}>Save Doctor</button>
       </form>
+    </div>
     </div>
   );
 };

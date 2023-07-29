@@ -1,0 +1,13 @@
+.allDoctor{
+    padding: 0 80px;
+    padding-top: 80px;
+}
+.searchDoctor{
+    width: 700px;
+    margin: 0 auto;
+}
+.searchDoctor input{
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px 0;
+}
