@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../../styles/register.css'
 import { Button } from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 const Register = () => {
     const navigate=useNavigate()
+    useEffect(()=>{
+        const auth=localStorage.getItem("token")
+        if(auth){
+          navigate('/doctors')
+        }
+      },[])
     const [userData, setUserData] = useState({
         username:"",
         email:"",

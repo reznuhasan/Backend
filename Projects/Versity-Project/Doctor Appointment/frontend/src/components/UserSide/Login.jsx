@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../../styles/login.css';
 import { Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
@@ -17,7 +17,13 @@ const Login = () => {
       [e.target.name]: e.target.value,
     }));
   };
-
+  
+  useEffect(()=>{
+    const auth=localStorage.getItem("token")
+    if(auth){
+      navigate('/doctors')
+    }
+  },[])
   const handleSubmit = (e) => {
     e.preventDefault();
     axios

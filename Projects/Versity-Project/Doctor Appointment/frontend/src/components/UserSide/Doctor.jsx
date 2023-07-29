@@ -2,7 +2,8 @@ import React from 'react'
 import { Card, Col } from 'react-bootstrap'
 
 const Doctor = ({doctor}) => {
-    const {image,name}=doctor
+    console.log(doctor);
+    const {image,name,qualification,category,fees,hospitals}=doctor
     return (
         <div>
             <Col>
@@ -11,9 +12,7 @@ const Doctor = ({doctor}) => {
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
-                            This is a longer card with supporting text below as a natural
-                            lead-in to additional content. This content is a little bit
-                            longer.
+                            qualification{}
                         </Card.Text>
                     </Card.Body>
                 </Card>
