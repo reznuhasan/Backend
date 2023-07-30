@@ -9,6 +9,10 @@ import Register from "./components/UserSide/Register"
 import Login from "./components/UserSide/Login"
 import DoctorPrivate from "./layout/DoctorPrivate"
 import DoctorDetails from "./components/UserSide/DoctorDetails"
+import Error from "./components/UserSide/Error"
+import Hospital from "./components/UserSide/Hospital"
+import Suggestion from "./components/UserSide/Suggestion"
+import HelpLine from "./components/UserSide/HelpLine"
 
 
 function App() {
@@ -18,10 +22,14 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/login" element={<Login/>}/>
-        <Route path="doctors" element={<Doctors/>}/>
-        <Route path="/*" element={<DoctorPrivate/>}>   
-          <Route path="doctors/:name" element={<DoctorDetails/>}/>
+        <Route exact path="doctors" element={<Doctors/>}/>
+        <Route path="/doctors" element={<DoctorPrivate/>}>   
+          <Route exact path=":name" element={<DoctorDetails/>}/>
         </Route>
+        <Route path="/hospital" element={<Hospital/>}></Route>
+        <Route path="/suggestion" element={<Suggestion/>}></Route>
+        <Route path="/helpline" element={<HelpLine/>}></Route>
+        <Route path="*" element={<Error/>}></Route>
       </Route>
      <Route path="admin" element={<AdminLayout/>}>
       <Route path="add" element={<AddDoctor/>}/>

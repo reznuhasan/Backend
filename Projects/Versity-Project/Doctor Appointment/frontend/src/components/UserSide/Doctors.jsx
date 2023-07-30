@@ -32,13 +32,17 @@ const Doctors = () => {
       <div className={styles.searchDoctor}>
          <input type="text" onChange={handleSearchValue} placeholder='search Doctor by name category qualification and hospitals'/>
       </div>
-      <div>
+      {doctors.length>0?<div>
         <Row xs={1} md={3} className="g-4">
           {
             doctors.map(doctor => <Doctor doctor={doctor} key={doctor._id} />)
           }
         </Row>
+      </div>:
+      <div>
+        <h1>Search No Found</h1>
       </div>
+      }
     </div>
   );
 };

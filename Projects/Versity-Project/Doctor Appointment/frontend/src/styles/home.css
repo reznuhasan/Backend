@@ -30,7 +30,10 @@
     font-weight: 700;
     font-size: 14px;
 }
-
+.content-part .btn .btn-text{
+    text-decoration: none;
+    color:whitesmoke
+}
 .banner-img img{
     padding-top: 100px;
     width: 480px;

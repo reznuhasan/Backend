@@ -1,7 +1,9 @@
 import React from 'react';
+//connect 
 import '../../styles/home.css';
 import doctorImg from '../../images/doctorBanner.png';
 import { Button, Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -14,7 +16,9 @@ const Home = () => {
                 <h3>We Provide All Type Doctor Appointment</h3>
               </div>
               <h1>Protect Your Health And Take Care Of Your Health</h1>
-              <Button className='btn'>Get A Appointment</Button>
+              <Button className='btn'>
+                <Link to="/doctors" className='btn-text'>Get A Appointment</Link>
+              </Button>
             </Col>
             <Col md={1}/>
             <Col md={5} className='banner-img'>
