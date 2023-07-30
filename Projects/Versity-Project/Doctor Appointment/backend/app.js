@@ -1,7 +1,8 @@
 const express=require('express');
 const app=express();
-const docterRouter=require('./router/doctorRoutes');
-const userRouter=require('./router/userRoutes')
+// const docterRouter=require('./router/doctorRoutes');
+// const userRouter=require('./router/userRoutes')
+const { v1 } = require('./api_version/v1');
 
 const cors=require('cors');
 
@@ -19,8 +20,11 @@ async function main() {
   console.log('mongoose connect successfully');
 }
 
-app.use('/api/doctors',docterRouter)
-app.use('/api/users',userRouter)
+// app.use('/api/doctors',docterRouter)
+// app.use('/api/users',userRouter)
+
+app.use("/api/v1", v1)
+
 app.get('/',(req,res)=>{
     res.send('hello from other side')
 })
