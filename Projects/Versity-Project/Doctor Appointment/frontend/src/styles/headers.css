@@ -20,7 +20,8 @@
     text-decoration: none;
 }
 .nav a:hover{
-    color:rgb(207, 135, 3);
+    /* color:rgb(207, 135, 3); */
+    color: white;
 }
 .active{
     color: white !important;
