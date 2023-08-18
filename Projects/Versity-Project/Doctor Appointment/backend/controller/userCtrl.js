@@ -19,7 +19,8 @@ const createUser = async (req, res) => {
                 username: req.body.username,
                 email: req.body.email,
                 password: hash,
-                contact: req.body.contact,
+                phone: req.body.phone,
+                gender:req.body.gender,
                 age: req.body.age,
                 blood: req.body.blood,
             })
@@ -46,7 +47,7 @@ const loginUser=async(req,res)=>{
                 id:findUser.userId,
                 username:findUser.username,
                 email:findUser.email,
-                contact:findUser.contact,
+                phone:findUser.phone,
             }
             const token=jwt.sign(payload,Secret_key,{
                 expiresIn:'2d'
