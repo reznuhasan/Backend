@@ -1,7 +1,9 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar,Dropdown,ButtonGroup, } from 'react-bootstrap';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import '../../styles/headers.css';
+import {FaUserCheck} from 'react-icons/fa'
+import {BiSolidUserPlus} from 'react-icons/bi'
 
 const Headers = () => {
   const auth=localStorage.getItem("token")
@@ -25,8 +27,10 @@ const Headers = () => {
               {
                 !auth ?
                 <>
-                  <Button><Link to="/login" className='login-btn'>Login</Link></Button>
-                  <Button><Link to="/register" className='register-btn'>Register</Link></Button>
+
+                <Button variant="primary" type="submit">
+                <Link to="/login">Signin</Link>
+                </Button>
                 </>
                 :
                 <Button onClick={handleLogout}>Logout</Button>

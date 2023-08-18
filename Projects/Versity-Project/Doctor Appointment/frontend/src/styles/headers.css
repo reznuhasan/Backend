@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 .navbar{
-    background-color: #FFFFFF;
+    background-color: #0DCAF0;
     padding: 20px 0 !important;
 }
 .logo{
@@ -23,5 +23,5 @@
     color:rgb(207, 135, 3);
 }
 .active{
-    color: red !important;
+    color: white !important;
 }

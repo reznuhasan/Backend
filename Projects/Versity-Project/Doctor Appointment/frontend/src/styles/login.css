@@ -1,38 +1,13 @@
-.login{
+.loginImag{
+    height: 100%;
     width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: #F7F7FF;
 }
 
-.login .login-container{
-    width: 600px;
-    padding:0 15px;
-    margin-top: 80px;
-    border-radius: 5px;
-    background-color: rgb(127, 159, 255);
+.login{
+    margin-top: 100px;
 }
-.login .login-container .login-title{
-    color:aliceblue;
-    text-align: center;
-} 
-.login .login-container .login-form .inputField{
-    margin:4px 0px;
-}
-.login .login-container .login-form input{
-    width: 100%;
-}
-.login .login-container .login-form .login-btn .btn{
-    width: 100%;
-    margin-top: 7px;
-}
-.login .login-container .login-form .register-page{
-    color: yellow;
-}
-.login .login-container .login-form p{
-    font-size: 18px;
-    margin-top: 18px !important; 
+
+.signupbtn a{
+    color: white;
+    text-decoration: none;
 }
