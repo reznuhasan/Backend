@@ -19,3 +19,19 @@ router.get('/profile', passport.authenticate('jwt', { session: false }),
     }
 );
 module.exports=router;
+
+// const doctor = [
+//     "pet betha",
+//     "hagu beshi hy",
+//     "mut ase nh",
+// ]
+
+// const doctor2 = [
+//     "pet betha",
+//     "hagu beshi hy",
+//     "mut ase nh",
+// ]
+
+// const finalData = [doctor, doctor2].flatMap(Infinity)
+
+// const rugi 

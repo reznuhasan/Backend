@@ -14,7 +14,7 @@ const getOneDoctor=async(req,res)=>{
     const oneDoctor=await Doctor.findOne({name:req.params.name})
     res.status(202).json({"message":"doctor get successfully",oneDoctor})
   }catch(err){
-    res.status(500).json({ error: 'Error getting doctor' });
+    res.status(500).json({ "error": 'Error getting doctor' });
   }
 }
 const addDoctor = async (req, res) => {
@@ -58,5 +58,25 @@ const searchDoctor = async (req, res) => {
     res.status(500).json({ error: 'Error searching doctor' });
   }
 };
+const changeSerialNumber = async (req, res) => {
+  try {
+      const { doctorId } = req.params;
+      const { hospitalIndex, newSerials } = req.body;
 
-module.exports={getAllDoctor,addDoctor,searchDoctor,getOneDoctor}
+      const findDoctor = await Doctor.findOne({ _id: doctorId });
+      
+      if (!findDoctor) {
+          return res.status(404).json({ error: "Doctor not found" });
+      }
+      
+      findDoctor.hospitals[hospitalIndex].serials = newSerials;
+      await findDoctor.save();
+
+      return res.status(202).json({ message: "Serials updated successfully" });
+  } catch (err) {
+      return res.status(500).json({ error: "Error updating doctor serials" });
+  }
+};
+
+
+module.exports={getAllDoctor,addDoctor,searchDoctor,getOneDoctor,changeSerialNumber}
