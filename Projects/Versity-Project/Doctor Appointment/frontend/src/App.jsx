@@ -13,6 +13,7 @@ import Error from "./components/UserSide/Error"
 import Hospital from "./components/UserSide/Hospital"
 import Suggestion from "./components/UserSide/Suggestion"
 import HelpLine from "./components/UserSide/HelpLine"
+import ShowAppointment from "./components/Admin/ShowAppointment"
 
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
       <Route path="/" element={<UserLayout/>}>
         <Route path="/" element={<Home/>}/>
         <Route path="/register" element={<Register/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route exact path="doctors" element={<Doctors/>}/>
+        <Route exact path="/login" element={<Login/>}/>
+        <Route exact path="/doctors" element={<Doctors/>}/>
+        
         <Route path="/doctors" element={<DoctorPrivate/>}>   
-          <Route exact path=":name" element={<DoctorDetails/>}/>
+        <Route exact path=":name" element={<DoctorDetails/>}/>
         </Route>
         <Route path="/hospital" element={<Hospital/>}></Route>
         <Route path="/suggestion" element={<Suggestion/>}></Route>
@@ -33,6 +35,7 @@ function App() {
       </Route>
      <Route path="admin" element={<AdminLayout/>}>
       <Route path="add" element={<AddDoctor/>}/>
+      <Route path="orders" element={<ShowAppointment/>}/>
      </Route>
     </Route>
   ]))

@@ -1,0 +1,9 @@
+.appointment{
+    display: flex;
+    margin: 5px 0;
+    height: 90px;
+    width: 100%;
+}
+.appointment h4{
+    width: 200px;
+}
