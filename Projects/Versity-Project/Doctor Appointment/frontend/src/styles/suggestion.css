@@ -1,0 +1,9 @@
+.suggestionBox{
+    margin-top: 140px;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+}
+.suggestionBox .suggimg{
+    height: 90%;
+    width: 90%;
+}
