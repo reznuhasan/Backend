@@ -1,7 +1,8 @@
 const { getUserById, putUserById, patchUserById, deleteUserById, postUser, getUser } = require('../Controller/userCtrl');
+const { authenticate } = require('../Middleware/authenticate');
 
 const router=require('express').Router();
-
+router.use(authenticate);
 router.get('/:userId',getUserById);
 router.put('/:userId',putUserById);
 router.patch("/:userId",patchUserById);

@@ -27,7 +27,7 @@ const studentSchema=new mongoose.Schema({
         type:[String],
         enum:["Student","Teacher","Admin"],
         required:true,
-        default:"Student",
+        default:["Student"],
     },
     activeStatus:{
         type:String,
