@@ -1,11 +1,11 @@
-const Student=require('../Model/student');
+const User=require('../Model/user');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const jwt=require('jsonwebtoken');
 const { secret_key } = require('../config/config');
-const createStudent=async(req,res,next)=>{
+const createUser=async(req,res,next)=>{
     try{
-       const user=await Student.findOne({email:req.body.email})
+       const user=await User.findOne({email:req.body.email})
        if(user){
         return res.status(403).json({message:"already user created"})
        }
@@ -13,13 +13,13 @@ const createStudent=async(req,res,next)=>{
         if(err){
             return next(err)
         }
-        const newStudent=new Student({
+        const newUser=new User({
             ...req.body,
             password:hash,
         })
         try {
-            const savedStudent = await newStudent.save();
-            return res.status(201).json(savedStudent);
+            const savedUser = await newUser.save();
+            return res.status(201).json(savedUser);
         } catch (saveError) {
             return next(saveError);
         }
@@ -30,7 +30,7 @@ const createStudent=async(req,res,next)=>{
 }
 const loginUser=async(req,res,next)=>{
     try{
-        const user=await Student.findOne({email:req.body.email});
+        const user=await User.findOne({email:req.body.email});
         if(!user){
             return res.status(403).json({message:"unauthorized"});
         }
@@ -49,5 +49,8 @@ const loginUser=async(req,res,next)=>{
         next(err)
     }
 }
-
-module.exports={createStudent,loginUser}
+const privateRoute=async(req,res,_next)=>{
+    console.log("I'm the user",req.user)
+    res.status(202).json({message:"I'm private route"})
+}
+module.exports={createUser,loginUser,privateRoute}
