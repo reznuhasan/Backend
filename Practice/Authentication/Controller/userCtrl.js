@@ -1,5 +1,4 @@
-const User=require('../Model/user')
-const { findUsers } = require('../Service/userService')
+const { findUsers, findUserById } = require('../Service/userService')
 
 const getUser=async(_req,res,next)=>{
     try{
@@ -9,8 +8,15 @@ const getUser=async(_req,res,next)=>{
         next(err)
     }
 }
-const getUserById=(req,res,next)=>{
-    
+const getUserById=async(req,res,next)=>{
+    try{
+        const userId=req.params.userId;
+        const user=await findUserById(userId);
+        res.status(200).json({message:"find user successfully",user})
+    }
+    catch(err){
+        next(err)
+    }
 }
 const postUser=(req,res,next)=>{
 

@@ -4,6 +4,9 @@ const findUsers=()=>{
     return User.find({});
 }
 
+const findUserById=(userId)=>{
+    return User.findById(userId)
+}
 
 
-module.exports={findUsers}
+module.exports={findUsers,findUserById}
