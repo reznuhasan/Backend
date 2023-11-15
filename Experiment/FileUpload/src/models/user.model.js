@@ -46,4 +46,5 @@ userSchema.methods.access_token_generator=function(){
     )
 }
 
-const userModel=mongoose.model('user',userSchema)
+const User=mongoose.model('user',userSchema)
+export default User;
