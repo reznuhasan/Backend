@@ -1,5 +1,6 @@
 import { checkUser } from "../service/UserService.js";
 import User from "../models/user.model.js";
+import uploadSource from "../utlis/Cloudinary.js";
 
 const createUser=async (req,res)=>{
     try {
@@ -7,7 +8,16 @@ const createUser=async (req,res)=>{
        if(user){
         res.status(401).json({"message":"user already created"})
        } 
-       const newUser=new User(req.body);
+       const uploadedRes=await uploadSource(req.body.profile)
+       if(!uploadedRes){
+        res.status(401).json({"message":"image response is not found"})
+       }
+       const newUser=new User({
+        name:req.body.name,
+        email:req.body.email,
+        password:req.body.password,
+        profile:uploadedRes
+       });
        const saveUser=await newUser.save();
        res.status(200).json({"message":"user created successfully",saveUser})
 
