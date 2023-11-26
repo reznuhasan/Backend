@@ -12,7 +12,8 @@ export const cloudinaryUpload=async (localImagePath)=>{
             resource_type:"auto"
         })
         console.log("cloudinary url",res)
-        return res
+        fs.unlinkSync(localImagePath)
+        return res.url
     } catch (error) {
         fs.unlink(localImagePath)
         console.log('cloudinary image upload failed')
