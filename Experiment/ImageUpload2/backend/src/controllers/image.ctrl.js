@@ -1,4 +1,3 @@
-import IMAGE from "../model/image.model.js";
 import { cloudImageUpload } from "../utlis/cloudinary.js";
 
 
